@@ -1,0 +1,15 @@
+.title {
+    text-transform: uppercase;
+    text-align: center;
+    position: relative;
+    top: 15vh;
+    font-size: 5em;
+}
+
+.location {
+    text-transform: uppercase;
+    text-align: center;
+    position: relative;
+    top: 15vh;
+    font-size: 1em;
+}

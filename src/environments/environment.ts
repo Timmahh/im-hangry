@@ -4,5 +4,6 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  ZOMATO_API_KEY: 'c81803edf91fa0a8305673c069887e1d'
 };

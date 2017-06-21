@@ -1,0 +1,6 @@
+<div *ngIf="currentQuestion">
+    <h2 class="question">Do you feel like</h2>
+    <h1 class="question substitute">{{currentQuestion}}?</h1>
+    <button class="btn yes-btn">Yes</button>
+    <button class="btn no-btn" (click)="onNoClicked()">No</button>
+</div>
