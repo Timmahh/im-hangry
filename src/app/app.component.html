@@ -1,7 +1,13 @@
 <div *ngIf="!geolocationPosition">
     <h1 class="title">I'm Hangry</h1>
-    <h3 class="location" *ngIf="!errorReason">Please wait while we get your location</h3>
+    <div class="location" *ngIf="!errorReason">
+        <h3>Please wait while we get your location</h3>
+        <i class="icon-location"></i>
+    </div>
     <h3 class="location" *ngIf="errorReason">{{errorReason}}</h3>
 </div>
-<h3 *ngIf="geolocationPosition && !nearbyRestaurants" class="location">Finding places close to you.</h3>
+<div *ngIf="geolocationPosition && !nearbyRestaurants" class="location">
+    <h3>Finding places close to you.</h3>
+    <i class="icon-shop"></i>
+</div>
 <app-question *ngIf="geolocationPosition && nearbyRestaurants" [nearbyRestaurants]="nearbyRestaurants"></app-question>
