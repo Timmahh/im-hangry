@@ -1,11 +1,12 @@
 import { TestBed, inject } from '@angular/core/testing';
-
+import { HttpModule } from '@angular/http';
 import { RecommendationsService } from './recommendations.service';
 
 describe('RecommendationsService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [RecommendationsService]
+      providers: [RecommendationsService],
+      imports: [HttpModule]
     });
   });
 

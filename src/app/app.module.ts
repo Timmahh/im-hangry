@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { RecommendationsService } from './recommendations.service';
-import { QuestionsService } from './questions.service';
 import { FuckThisComponent } from './fuck-this/fuck-this.component';
 import { QuestionComponent } from './question/question.component';
 import { SuggestionsComponent } from './suggestions/suggestions.component';
@@ -19,7 +18,7 @@ import { SuggestionsComponent } from './suggestions/suggestions.component';
     BrowserModule,
     HttpModule
   ],
-  providers: [RecommendationsService, QuestionsService],
+  providers: [RecommendationsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
