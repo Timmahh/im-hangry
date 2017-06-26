@@ -34,34 +34,51 @@ export class RecommendationsService {
     });
   }
 
-  getRestaurantsNearby(position: Position, radius: number = 100) {
+  getRestaurantsNearby(position: Position, radius: number = 5000) {
     // return new BehaviorSubject<any>(dummyResponse());
     return this.http.get(`https://developers.zomato.com/api/v2.1/search?lat=${position.coords.latitude}&lon=${position.coords.longitude}&radius=${radius}&sort=real_distance`,
       new RequestOptions({headers: new Headers({'user-key': environment.ZOMATO_API_KEY})}))
       .map(res => {
         let json = res.json();
-        return json;
+        return _.map(json.restaurants, r => {
+            return new Restaurant(r.restaurant);
+        });
       });
   }
 
-  generateQuestions(restaurants) {
+  generateQuestions(restaurants: Restaurant[]) {
     let restaurantCuisines: any = {};
 
-    _.each(restaurants, r => {
-      let cuisineList = (r.restaurant.cuisines as string).split(/,/);
-      
-      _.each(cuisineList, cuisine => {
-        cuisine = _.trim(cuisine);
+    _.each(restaurants, (r: Restaurant) => {
+      _.each(r.cuisines, cuisine => {
         if(_.isNil(restaurantCuisines[cuisine])) {
           restaurantCuisines[cuisine] = [];
         }
-        restaurantCuisines[cuisine].push(r.restaurant);
+        restaurantCuisines[cuisine].push(r);
       });
     });
 
     return restaurantCuisines;
   }
 
+}
+
+class Restaurant {
+    id: number;
+    name: string;
+    address: string;
+    cuisines: string[];
+    image: string;
+
+    constructor(dto: any) {
+        this.id = dto.id;
+        this.name = dto.name;
+        this.address = dto.location.address;
+        this.cuisines = _.map((dto.cuisines as string).split(/,/), c => {
+            return _.trim(c);
+        });
+        this.image = dto.thumb;
+    }
 }
 
 function dummyResponse() {
