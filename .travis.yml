@@ -36,7 +36,7 @@ deploy:
     region: "ap-southeast-2"
     zip: lambda
     role: "arn:aws:iam::722888183710:role/service-role/im-hangry"
-    runtime: "nodejs6.9"
+    runtime: "nodejs6.10"
     handler_name: "handler"
     publish: true
     access_key_id: AKIAIWC5GTT2WIDTT5CA
