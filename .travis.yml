@@ -3,25 +3,29 @@ dist: trusty
 group: edge
 language: node_js
 node_js:
-  - '6.9'
-
-addons:
+- '6.9'
+addons: 
 apt:
   sources:
-    - google-chrome
+  - google-chrome
   packages:
-    - google-chrome-stable
-    - google-chrome-beta
-
+  - google-chrome-stable
+  - google-chrome-beta
 before_install:
-  - export CHROME_BIN=chromium-browser
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
-
+- export CHROME_BIN=chromium-browser
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
 before_script:
 - npm install -g @angular/cli
 - npm install -g karma
 - npm install
 - ng build
-
 script: karma start karma.conf.js --single-run
+deploy:
+  provider: s3
+  access_key_id: AKIAIWC5GTT2WIDTT5CA
+  secret_access_key:
+    secure: sXC0vSFkDqz9RAWdRsV2zzUszczutyoVg66/NejWgDGgcH0cPO8ME2TS4abgfEHh2oVtznpTiZtfBfdwcrBR4aWLE696wVcGYvDCdFgmgABgpopZDkaOgE8W3AfL695/Vn4z0Xlm8noLxjUIxRWeKkFtgigBauKb/e+H84BR0OTAr2hkneV3sT9+sgv2KZFGPSAPA43kDt1EnqhQBM8IuvFiJ7l2l/ZOtFJNokXeL4tvgD2/W+KQ+YBBkeUxjJ43puu7Yf1cuHmINWCmiMltir41KFip3kOnfgDGkwIKTsCkOwGkygTnw0CbG41/UqOwMJYv2N2wJheBZMLbiYbb6NNH6kUwaFqzE47pcJbu8feg3GJjpdKiWGNSPtbtrZ9LQV3EvwXoyK8zuJBLACJcxTPkLpcXD5eemSjowY9skCc60IXPQoVNCcmPM02Z/jGxcUz3M5KoZXe0t+3Fx25nWcL34e+9p5uMo/rFS8dqxeKZMI+fMiy52UfhEktSCjdZot92qRiMpt5b7N4MIbSC2sMfa5HdppbwVYCIf8YYv5zTWNqMqWaxloDdRS205RDB+BoTUR18/1Yqanu3mzcj0s3TovFmWviDYjT7ioWu7kxL6lUJvkWdxXboDjMlwXUnZn6iSI4cKJIj+1bM7tNC4J6OERpERTIeJ356voBKQYw=
+  bucket: im-hangry
+  skip_cleanup: true
+  local_dir: dist
