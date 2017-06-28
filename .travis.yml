@@ -21,6 +21,9 @@ before_script:
 - npm install
 - npm run build
 - npm run precache
+- cd lambda
+- zip -r ../lambda.zip *
+- cd ..
 script: karma start karma.conf.js --single-run
 deploy:
   - provider: s3
@@ -34,7 +37,7 @@ deploy:
   - provider: lambda
     function_name: "im-hangry"
     region: "ap-southeast-2"
-    zip: lambda
+    zip: lambda.zip
     role: "arn:aws:iam::722888183710:role/service-role/im-hangry"
     runtime: "nodejs6.10"
     handler_name: "handler"
