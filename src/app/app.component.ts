@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
             position => {
                 this.geolocationPosition = position;
                 this.recommendations.getRestaurantsNearby(position).subscribe((res) => {
-                    this.nearbyRestaurants = this.recommendations.generateQuestions(res.restaurants);
+                    this.nearbyRestaurants = this.recommendations.generateQuestions(res);
                 });
             },
             error => {

@@ -1,13 +1,14 @@
+<i class="li_settings settings-icon"></i>
 <div *ngIf="!geolocationPosition">
     <h1 class="title">I'm Hangry</h1>
     <div class="location" *ngIf="!errorReason">
         <h3>Please wait while we get your location</h3>
-        <i class="icon-location"></i>
+        <i class="li_location"></i>
     </div>
     <h3 class="location" *ngIf="errorReason">{{errorReason}}</h3>
 </div>
 <div *ngIf="geolocationPosition && !nearbyRestaurants" class="location">
-    <h3>Finding places close to you.</h3>
-    <i class="icon-shop"></i>
+    <h3>Finding places close to you</h3>
+    <i class="li_shop"></i>
 </div>
 <app-question *ngIf="geolocationPosition && nearbyRestaurants" [nearbyRestaurants]="nearbyRestaurants"></app-question>

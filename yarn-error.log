@@ -1,8 +1,8 @@
 Arguments: 
-  /usr/local/Cellar/node/7.4.0/bin/node /usr/local/bin/yarn add lodash @types/lodash
+  /usr/local/Cellar/node/7.4.0/bin/node /usr/local/bin/yarn add mini.css
 
 PATH: 
-  /Users/timothyveletta/Downloads/google-cloud-sdk/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:/Library/Frameworks/Mono.framework/Versions/Current/Commands
+  /Users/timothyveletta/Downloads/google-cloud-sdk/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Users/timothyveletta/Downloads/google-cloud-sdk/bin
 
 Yarn version: 
   0.21.3
@@ -5543,7 +5543,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/zone.js/-/zone.js-0.8.12.tgz#86ff5053c98aec291a0bf4bbac501d694a05cfbb"
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@types%2flodash: tunneling socket could not be established, cause=connect ENETUNREACH 10.17.236.44:8081 - Local (0.0.0.0:49997)
+  Error: https://registry.yarnpkg.com/mini.css: tunneling socket could not be established, cause=connect ECONNREFUSED 10.17.236.44:8081
       at ClientRequest.onError (/usr/local/lib/node_modules/yarn/node_modules/tunnel-agent/index.js:176:17)
       at Object.onceWrapper (events.js:290:19)
       at emitOne (events.js:96:13)

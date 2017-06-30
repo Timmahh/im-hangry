@@ -1,6 +1,17 @@
 <div *ngIf="currentQuestion">
     <h2 class="question">Do you feel like</h2>
     <h1 class="question substitute">{{currentQuestion}}?</h1>
-    <button class="btn yes-btn">Yes</button>
-    <button class="btn no-btn" (click)="onNoClicked()">No</button>
+    <label class="button btn yes-btn" for="modal-check">Yes</label>
+    <input id="modal-check" type="checkbox">
+    <div class="modal">
+        <div class="card">
+            <label for="modal-check" class="close" (click)="onNoClicked()"></label>
+            <h3 class="section double-padded"><small>{{currentQuestion}}</small></h3>
+        </div>
+    </div>
+    <label class="button btn no-btn" (click)="onNoClicked()">No</label>
+</div>
+<div *ngIf="allQuestions.length === 0 || currentQuestionIndex >= allQuestions.length">
+    <h3>Unfortunately we have run out of places to go. Try expanding your search radius in the settings.</h3>
+    <i class="li_search"></i>
 </div>

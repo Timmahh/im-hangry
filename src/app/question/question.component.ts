@@ -11,7 +11,7 @@ export class QuestionComponent implements OnInit {
   currentQuestionIndex: number = 0;
   @Input() nearbyRestaurants: any;
 
-  allQuestions: any;
+  allQuestions: string[];
 
   constructor() { }
 
