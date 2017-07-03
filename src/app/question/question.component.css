@@ -46,3 +46,9 @@
     max-height: 90vh;
     overflow-y: scroll;
 }
+
+.places-list {
+    .row {
+        border-top: 1px #ddd solid;
+    }
+}
