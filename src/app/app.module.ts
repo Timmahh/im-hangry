@@ -5,12 +5,14 @@ import { AppComponent } from './app.component';
 import { RecommendationsService } from './recommendations.service';
 import { QuestionComponent } from './question/question.component';
 import { SettingsComponent } from './settings/settings.component';
+import { RecommendationsComponent } from './recommendations/recommendations.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     QuestionComponent,
-    SettingsComponent
+    SettingsComponent,
+    RecommendationsComponent
   ],
   imports: [
     BrowserModule,

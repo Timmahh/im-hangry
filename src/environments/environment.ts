@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  ZOMATO_API_KEY: 'c81803edf91fa0a8305673c069887e1d'
+  API_URL: `https://z509rq6oq9.execute-api.ap-southeast-2.amazonaws.com/prod/im-hangry`
 };

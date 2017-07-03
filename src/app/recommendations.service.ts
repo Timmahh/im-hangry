@@ -12,30 +12,8 @@ export class RecommendationsService {
   constructor(private http: Http) {
    }
 
-  getNearbyPlacesList(position: Position) {
-    let location = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-    let map = new google.maps.Map(document.getElementById('map'), {
-      center: location,
-      zoom: 15
-    });
-    let request = {
-      location: location,
-      radius: 500,
-      type: 'cafe'
-    };
-    let service = new google.maps.places.PlacesService(map);
-    service.nearbySearch(request, (res, status) => {
-      if (status == google.maps.places.PlacesServiceStatus.OK) {
-        for (var i = 0; i < res.length; i++) {
-          var place = res[i];
-          console.log(place);
-        }
-      }
-    });
-  }
-
   getRestaurantsNearby(position: Position, radius: number = 5000) {
-    return this.http.get(`https://z509rq6oq9.execute-api.ap-southeast-2.amazonaws.com/prod/im-hangry?lat=${position.coords.latitude}&long=${position.coords.longitude}&rad=${radius}`)
+    return this.http.get(`${environment.API_URL}?lat=${position.coords.latitude}&long=${position.coords.longitude}&rad=${radius}`)
       .map(res => {
         let json = res.json();
         return _.map(json.restaurants, r => {
@@ -61,7 +39,7 @@ export class RecommendationsService {
 
 }
 
-class Restaurant {
+export class Restaurant {
     id: number;
     name: string;
     address: string;
@@ -75,8 +53,4 @@ class Restaurant {
         this.cuisines = dto.cuisines;
         this.image = dto.image;
     }
-}
-
-function dummyResponse() {
-  return JSON.parse(``);
 }

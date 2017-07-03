@@ -3,12 +3,7 @@
     <h1 class="question substitute">{{currentQuestion}}?</h1>
     <label class="button btn yes-btn" for="modal-check">Yes</label>
     <input id="modal-check" type="checkbox">
-    <div class="modal">
-        <div class="card">
-            <label for="modal-check" class="close" (click)="onNoClicked()"></label>
-            <h3 class="section double-padded"><small>{{currentQuestion}}</small></h3>
-        </div>
-    </div>
+    <app-recommendations [cuisine]="currentQuestion" [places]="currentQuestionPlaces" (onCancel)="onNoClicked()"></app-recommendations>
     <label class="button btn no-btn" (click)="onNoClicked()">No</label>
 </div>
 <div *ngIf="allQuestions.length === 0 || currentQuestionIndex >= allQuestions.length">

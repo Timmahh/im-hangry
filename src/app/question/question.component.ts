@@ -18,10 +18,16 @@ export class QuestionComponent implements OnInit {
   ngOnInit() {
     this.allQuestions = _.keys(this.nearbyRestaurants);
     this.currentQuestion = this.allQuestions[this.currentQuestionIndex];
+    if(this.currentQuestion === "") {
+      this.currentQuestion = this.allQuestions[++this.currentQuestionIndex];
+    }
   }
 
   onNoClicked() {
     this.currentQuestion = this.allQuestions[++this.currentQuestionIndex];
   }
 
+  get currentQuestionPlaces() {
+    return this.nearbyRestaurants[this.currentQuestion];
+  }
 }

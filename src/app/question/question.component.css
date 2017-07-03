@@ -37,6 +37,12 @@
 
 .card {
     max-height: 90vh;
+    max-width: 98vw;
     color: #444;
     text-transform: uppercase;
+}
+
+.places-list {
+    max-height: 90vh;
+    overflow-y: scroll;
 }

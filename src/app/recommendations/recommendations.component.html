@@ -1,0 +1,20 @@
+<div class="modal">
+    <div class="card">
+        <!--<label for="modal-check" class="close" (click)="onNoClicked()"></label>-->
+        <h3 class="section double-padded"><small>{{cuisine}}</small></h3>
+        <div class="section double-padded places-list">
+            <div class="row" *ngFor="let place of places">
+                <div class="col-sm-3">
+                    <img [src]="place.image">
+                </div>
+                <div class="col-sm">
+                    <h6>{{place.name}}</h6>
+                    <p><small>{{place.address}}</small></p>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <label class="button" for="modal-check" (click)="onCancelClicked()">None of these!</label>
+        </div>
+    </div>
+</div>
