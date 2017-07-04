@@ -1,8 +1,6 @@
 <label for="modal-check"><i class="li_settings settings-icon"></i></label>
 <input id="modal-check" type="checkbox">
-<app-settings class="modal"></app-settings>
-
-
+<app-settings class="modal" (onSave)="reset()"></app-settings>
 
 <div *ngIf="!geolocationPosition">
     <h1 class="title">I'm Hangry</h1>

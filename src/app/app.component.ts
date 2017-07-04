@@ -13,6 +13,17 @@ export class AppComponent implements OnInit {
 
   constructor(private recommendations: RecommendationsService) {}
 
+  reset() {
+    this.nearbyRestaurants = null;
+    if(this.geolocationPosition) {
+        this.recommendations.getRestaurantsNearby(this.geolocationPosition).subscribe((res) => {
+            this.nearbyRestaurants = this.recommendations.generateQuestions(res);
+        });
+    } else {
+        this.ngOnInit();
+    }
+  }
+
   ngOnInit() {
     if (window.navigator && window.navigator.geolocation) {
         window.navigator.geolocation.getCurrentPosition(
