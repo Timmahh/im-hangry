@@ -29,7 +29,10 @@ exports.handler = (event, context, callback) => {
                         "cuisines": r.restaurant.cuisines.split(/,/).map(c => {
                             return c.trim();
                         }),
-                        "image": r.restaurant.thumb
+                        "image": r.restaurant.featured_image,
+                        "priceRange": r.restaurant.price_range,
+                        "currency": r.restaurant.currency,
+                        "rating": r.restaurant.user_rating.aggregate_rating
                     };
                 })
             })
