@@ -45,6 +45,9 @@ export class Restaurant {
     address: string;
     cuisines: string[];
     image: string;
+    priceRange: number;
+    currency: string;
+    rating: number;
 
     constructor(dto: any) {
         this.id = dto.id;
@@ -52,5 +55,8 @@ export class Restaurant {
         this.address = dto.address;
         this.cuisines = dto.cuisines;
         this.image = dto.image;
+        this.priceRange = parseInt(dto.priceRange);
+        this.currency = dto.currency;
+        this.rating = parseFloat(dto.rating);
     }
 }
