@@ -1,5 +1,6 @@
 import { TestBed, async } from '@angular/core/testing';
 import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { RecommendationsService } from './recommendations.service';
 import { QuestionComponent } from './question/question.component';
@@ -16,7 +17,7 @@ describe('AppComponent', () => {
         RecommendationsComponent
       ],
       providers: [RecommendationsService],
-      imports: [HttpModule]
+      imports: [HttpModule, FormsModule]
     }).compileComponents();
   }));
 
