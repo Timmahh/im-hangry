@@ -9,11 +9,13 @@ import { environment } from '../environments/environment';
 @Injectable()
 export class RecommendationsService {
 
+  radiusToSearch: BehaviorSubject<number> = new BehaviorSubject(5000);
+
   constructor(private http: Http) {
    }
 
-  getRestaurantsNearby(position: Position, radius: number = 5000) {
-    return this.http.get(`${environment.API_URL}?lat=${position.coords.latitude}&long=${position.coords.longitude}&rad=${radius}`)
+  getRestaurantsNearby(position: Position) {
+    return this.http.get(`${environment.API_URL}?lat=${position.coords.latitude}&long=${position.coords.longitude}&rad=${this.radiusToSearch.getValue()}`)
       .map(res => {
         let json = res.json();
         return _.map(json.restaurants, r => {
@@ -55,7 +57,7 @@ export class Restaurant {
         this.address = dto.address;
         this.cuisines = dto.cuisines;
         this.image = dto.image;
-        this.priceRange = parseInt(dto.priceRange);
+        this.priceRange = dto.priceRange;
         this.currency = dto.currency;
         this.rating = parseFloat(dto.rating);
     }

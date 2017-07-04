@@ -1,15 +1,20 @@
 <div class="card">
     <label for="modal-check" class="close"></label>
     <h3 class="section double-padded">Settings</h3>
-    <div class="section double-padded">
+    <div class="section double-padded container-fluid">
         <div class="row">
-            <p><small>Radius to Search</small></p>
+            <div class="col-sm-8">
+                <p>Radius to Search (m)</p>
+            </div>
+            <div class="col-sm-4">
+                <input type="number" value="" id="radius" [(ngModel)]="radiusToSearch">
+            </div>
         </div>
     </div>
     <div class="section double-padded">
         <div class="row">
             <div class="col-sm-4 col-sm-offset-4">
-                <label class="button" for="modal-check">Save</label>
+                <label class="button" for="modal-check" (click)="onSaveSettings($event)">Save</label>
             </div>
         </div>
     </div>

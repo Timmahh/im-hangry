@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RecommendationsService } from '../recommendations.service';
 
 @Component({
   selector: 'app-settings',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./settings.component.css']
 })
 export class SettingsComponent implements OnInit {
+  radiusToSearch: number;
 
-  constructor() { }
+  constructor(private recommendations: RecommendationsService) { }
 
   ngOnInit() {
+    this.recommendations.radiusToSearch.subscribe(rad => {
+      this.radiusToSearch = rad;
+    });
+  }
+
+  onSaveSettings(event) {
+    this.recommendations.radiusToSearch.next(this.radiusToSearch);
   }
 
 }

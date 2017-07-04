@@ -1,4 +1,10 @@
 .card {
+    overflow-x: hidden;
     text-transform: uppercase;
     color: #444;
+    max-width: 98vw;
+}
+
+input {
+    max-width: 100%;
 }

@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { RecommendationsService } from './recommendations.service';
 import { QuestionComponent } from './question/question.component';
@@ -16,7 +17,8 @@ import { RecommendationsComponent } from './recommendations/recommendations.comp
   ],
   imports: [
     BrowserModule,
-    HttpModule
+    HttpModule,
+    FormsModule
   ],
   providers: [RecommendationsService],
   bootstrap: [AppComponent]

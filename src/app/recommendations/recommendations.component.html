@@ -2,16 +2,30 @@
     <h3 class="section double-padded"><small>{{cuisine}}</small></h3>
     <div class="section double-padded places-list">
         <div class="row" *ngFor="let place of places">
-            <div class="col-sm-3">
-                <img [src]="place.image">
+            <div class="col-sm-3 media">
+                <img *ngIf="place.image !== ''" [src]="place.image">
+                <i *ngIf="place.image === ''" class="placeholder-image li_shop"></i>
             </div>
-            <div class="col-sm">
+            <div class="col-sm-7">
                 <h6>{{place.name}}</h6>
-                <p><small>{{place.address}}</small></p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <span *ngIf="place.rating !== 0">
+                            <i *ngFor="let star of getNumberOfStars(place.rating)" class="li_star" [ngClass]="{'no-star': star === 0}"></i>
+                        </span>
+                        <small *ngIf="place.rating === 0">No Rating</small>
+                    </div>
+                    <div class="col-sm-6">
+                        <span *ngFor="let star of getPriceRange(place.priceRange)" class="currency">{{place.currency}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <h6>Take me here!</h6>
             </div>
         </div>
     </div>
     <div class="section">
-        <label class="button" for="modal-check" (click)="onCancelClicked($event)">None of these!</label>
+        <label class="button" for="modal-yes" (click)="onCancelClicked($event)">None of these!</label>
     </div>
 </div>
