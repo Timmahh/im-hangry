@@ -29,7 +29,7 @@ export class RecommendationsService {
 
     _.each(restaurants, (r: Restaurant) => {
       _.each(r.cuisines, cuisine => {
-        if(_.isNil(restaurantCuisines[cuisine])) {
+        if(!restaurantCuisines[cuisine]) {
           restaurantCuisines[cuisine] = [];
         }
         restaurantCuisines[cuisine].push(r);

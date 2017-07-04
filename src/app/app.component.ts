@@ -36,7 +36,7 @@ export class AppComponent implements OnInit {
             error => {
                 switch (error.code) {
                     case 1:
-                        this.errorReason = 'Help me help you! Give me permission to know your location so we can give you recommendations.';
+                        this.errorReason = 'Help us help you! Give us permission to know your location so we can give you recommendations.';
                         break;
                     case 2:
                         this.errorReason = 'Position unavailable at this time. Try again later.';
