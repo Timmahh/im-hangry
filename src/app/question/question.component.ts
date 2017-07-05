@@ -46,7 +46,7 @@ export class QuestionComponent implements OnInit {
   }
 
   get noQuestions() {
-    return this.allQuestions.length === 0 || this.currentQuestionIndex >= this.allQuestions.length;
+    return this.allQuestions && (this.allQuestions.length === 0 || this.currentQuestionIndex >= this.allQuestions.length);
   }
 
   get currentQuestionPlaces() {
