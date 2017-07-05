@@ -32,7 +32,8 @@ exports.handler = (event, context, callback) => {
                         "image": r.restaurant.featured_image,
                         "priceRange": r.restaurant.price_range,
                         "currency": r.restaurant.currency,
-                        "rating": r.restaurant.user_rating.aggregate_rating
+                        "rating": r.restaurant.user_rating.aggregate_rating,
+                        "url": r.restaurant.url
                     };
                 })
             })
