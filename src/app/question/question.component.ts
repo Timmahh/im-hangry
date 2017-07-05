@@ -27,6 +27,27 @@ export class QuestionComponent implements OnInit {
     this.currentQuestion = this.allQuestions[++this.currentQuestionIndex];
   }
 
+  get questionDisplay() {
+    switch(this.currentQuestion) {
+      case 'Cafe': return 'Cafe Food';
+      case 'Sandwich': return 'A Sandwich';
+      case 'Burger': return 'Burgers';
+      default: return this.currentQuestion;
+    }
+  }
+
+  get isBackShown() {
+    return this.currentQuestionIndex !== 0;
+  }
+
+  onBackClicked() {
+    this.currentQuestion = this.allQuestions[--this.currentQuestionIndex];
+  }
+
+  get noQuestions() {
+    return this.allQuestions.length === 0 || this.currentQuestionIndex >= this.allQuestions.length;
+  }
+
   get currentQuestionPlaces() {
     return this.nearbyRestaurants[this.currentQuestion];
   }

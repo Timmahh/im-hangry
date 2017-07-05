@@ -1,12 +1,15 @@
 <div *ngIf="currentQuestion">
     <h2 class="question">Do you feel like</h2>
-    <h1 class="question substitute">{{currentQuestion}}?</h1>
+    <h1 class="question substitute">{{questionDisplay}}?</h1>
     <label class="button btn yes-btn" for="modal-yes">Yes</label>
     <input id="modal-yes" type="checkbox">
     <app-recommendations class="modal" [cuisine]="currentQuestion" [places]="currentQuestionPlaces" (onCancel)="onNoClicked()"></app-recommendations>
     <label class="button btn no-btn" (click)="onNoClicked()">No</label>
+    <label *ngIf="isBackShown" class="button btn back-btn" (click)="onBackClicked()">
+        Back
+    </label>
 </div>
-<div *ngIf="allQuestions.length === 0 || currentQuestionIndex >= allQuestions.length">
+<div *ngIf="noQuestions">
     <h3>Unfortunately we have run out of places to go. Try expanding your search radius in the settings.</h3>
     <i class="li_search"></i>
 </div>

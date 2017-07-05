@@ -16,9 +16,11 @@ export class RecommendationsService {
     return this.http.get(`${environment.API_URL}?lat=${position.coords.latitude}&long=${position.coords.longitude}&rad=${this.radiusToSearch.getValue()}`)
       .map(res => {
         let json = res.json();
-        return _.map(json.restaurants, r => {
-            return new Restaurant(r);
-        });
+        let restaurants: Restaurant[] = [];
+        for(let i = 0; i < json.restaurants.length; i++) {
+          restaurants.push(new Restaurant(json.restaurants[i]));
+        }
+        return restaurants;
       });
   }
 
