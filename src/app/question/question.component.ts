@@ -15,10 +15,12 @@ export class QuestionComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.allQuestions = Object.keys(this.nearbyRestaurants);
-    this.currentQuestion = this.allQuestions[this.currentQuestionIndex];
-    if(this.currentQuestion === "") {
-      this.currentQuestion = this.allQuestions[++this.currentQuestionIndex];
+    if(this.nearbyRestaurants) {
+      this.allQuestions = Object.keys(this.nearbyRestaurants);
+      this.currentQuestion = this.allQuestions[this.currentQuestionIndex];
+      if(this.currentQuestion === "") {
+        this.currentQuestion = this.allQuestions[++this.currentQuestionIndex];
+      }
     }
   }
 
