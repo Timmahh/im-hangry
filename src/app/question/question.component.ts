@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import * as _ from 'lodash';
 
 @Component({
   selector: 'app-question',
@@ -16,7 +15,7 @@ export class QuestionComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.allQuestions = _.keys(this.nearbyRestaurants);
+    this.allQuestions = Object.keys(this.nearbyRestaurants);
     this.currentQuestion = this.allQuestions[this.currentQuestionIndex];
     if(this.currentQuestion === "") {
       this.currentQuestion = this.allQuestions[++this.currentQuestionIndex];

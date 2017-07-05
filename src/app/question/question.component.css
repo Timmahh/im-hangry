@@ -27,8 +27,7 @@
 
 .back-btn {
     border: none;
-    position: absolute;
-    bottom: 0;
+    top: 40vh;
 }
 
 .btn:hover {
