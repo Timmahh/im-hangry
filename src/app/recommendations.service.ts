@@ -49,6 +49,7 @@ export class Restaurant {
     priceRange: number;
     currency: string;
     rating: number;
+    url: string;
 
     constructor(dto: any) {
         this.id = dto.id;
@@ -59,5 +60,6 @@ export class Restaurant {
         this.priceRange = dto.priceRange;
         this.currency = dto.currency;
         this.rating = parseFloat(dto.rating);
+        this.url = dto.url;
     }
 }
