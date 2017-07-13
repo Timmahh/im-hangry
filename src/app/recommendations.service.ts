@@ -1,7 +1,8 @@
 import { Injectable, Inject } from '@angular/core';
 import { Http, RequestOptions, Headers } from '@angular/http';
-import 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable'; 
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import 'rxjs/add/operator/map';
 import { environment } from '../environments/environment';
 
 @Injectable()
